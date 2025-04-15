@@ -31,6 +31,7 @@ include:
   - nimbus-features/microsurveyFeature.yaml
   - nimbus-features/nativeErrorPageFeature.yaml
   - nimbus-features/newAppearanceMenu.yaml
+  - nimbus-features/newAddressBarMenu.yaml
   - nimbus-features/nightModeFeature.yaml
   - nimbus-features/onboardingFrameworkFeature.yaml
   - nimbus-features/pdfRefactorFeature.yaml
