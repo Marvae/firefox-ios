@@ -14,6 +14,7 @@ import Common
 struct GenericSectionView<Content: View>: View {
     let title: String
     let description: String?
+    let identifier: String
     let content: () -> Content
 
     let theme: Theme?
@@ -32,9 +33,14 @@ struct GenericSectionView<Content: View>: View {
         static var textPadding: CGFloat { 8 }
     }
 
-    init(theme: Theme?, title: String, description: String? = nil, @ViewBuilder content: @escaping () -> Content) {
+    init(theme: Theme?,
+         title: String,
+         description: String? = nil,
+         identifier: String,
+         @ViewBuilder content: @escaping () -> Content) {
         self.title = title
         self.description = description
+        self.identifier = identifier
         self.content = content
         self.theme = theme
     }
@@ -71,6 +77,9 @@ struct GenericSectionView<Content: View>: View {
                 .foregroundColor(sectionTitleColor)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
+        .accessibilityElement()
+        .accessibilityIdentifier(identifier)
+        .accessibilityAddTraits(.isStaticText)
     }
 
     /// Creates the footer view with the provided text.
